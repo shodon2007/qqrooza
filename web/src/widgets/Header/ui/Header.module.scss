@@ -1,0 +1,13 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--brand-color-700);
+  height: var(--header-height);
+  padding: 1.25rem 1.56rem;
+}
+
+.link {
+  font-size: 2.6rem;
+  text-decoration: none;
+}

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproject=self.webpackChunkproject||[]).push([[77],{77:(s,e,c)=>{c.r(e),c.d(e,{default:()=>n});var r=c(848),t=c(389);var a=c(164);const n=()=>{const{t:s}=(0,t.Bd)();return(0,r.jsx)("div",{className:(0,a.A)("s3qI958s"),children:s("Страница не найдена")})}}}]);

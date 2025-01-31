@@ -1,0 +1,32 @@
+.Button {
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: var(--font-size-m);
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+
+    &:hover {
+      box-shadow: 0px 0px 3px #A3A3A3;
+    }
+}
+.fullWidth {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.maxContentWidth {
+  width: max-content;
+}
+
+.clear {
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.primary {
+  background-color: var(--brand-color-700);
+}
+

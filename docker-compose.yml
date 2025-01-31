@@ -1,0 +1,78 @@
+services:
+    proxy:
+        container_name: qqrooza-proxy 
+        build: ./proxy/
+        # env_file:
+        #     - ./proxy/.env
+        volumes: 
+          - ./dist:/usr/share/nginx/html/
+        ports:
+            - 3400:80
+            - 3000:3000
+        depends_on:
+            - web 
+        networks:
+            - back
+            - front
+    web:
+        container_name: qqrooza-web
+        build: ./web/
+        restart: no 
+        volumes:
+          - ./dist:/root/qqrooza-web/dist
+        # healthcheck:
+        #   test: "curl http://localhost:3000"
+        #   interval: 3s
+        #   timeout: 10s
+        #   retries: 3
+        # depends_on:
+            # - api
+        networks:
+            - front
+    api:
+        container_name: qqrooza-api
+        build: ./api/
+        restart: always
+        env_file:
+            - ./api/.env
+        ports: 
+            - 8840:8000
+        # healthcheck:
+        #   test: "curl http://localhost:8000/api/check"
+        #   interval: 3s
+        #   timeout: 10s
+        #   retries: 3
+        depends_on:
+            - db
+        # :
+        #         condition: service_healthy
+        #         restart: true
+        networks:
+            - db
+            - back
+    db:
+        container_name: qqrooza-db
+        build: ./db/
+        ports: 
+            - 5432:5432
+        env_file:
+             - ./db/.env
+        volumes:
+            - ./db/data:/var/lib/mysql
+            - ./db/initdb:/docker-entrypoint-initdb.d
+        restart: always
+        # healthcheck:
+        #     test: ["CMD-SHELL", "pg_isready", "-d", "qqrooza"]
+        #     interval: 10s
+        #     timeout: 5s
+        #     retries: 3
+        #     start_period: 5s
+        networks:
+            - db
+networks:
+    front:
+        driver: bridge
+    back:
+        driver: bridge
+    db:
+        driver: bridge
