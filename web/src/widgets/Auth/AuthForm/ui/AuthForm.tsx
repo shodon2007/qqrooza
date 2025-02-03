@@ -25,7 +25,7 @@ const AuthForm = () => {
 
 	useEffect(() => {
 		if (userStore.isAuth) {
-			navigate(RoutePath.main);
+			navigate(RoutePath.texts);
 		}
 	}, [userStore]);
 
@@ -35,7 +35,7 @@ const AuthForm = () => {
 		});
 		const resp = await userAuth(values);
 		if (resp === true) {
-			navigate(RoutePath.main);
+			navigate(RoutePath.users);
 		} else {
 			toast.error(resp.message);
 		}
