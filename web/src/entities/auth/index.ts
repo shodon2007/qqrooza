@@ -1,2 +1,4 @@
 import { AuthFormFields } from "./model/types/authTypes";
-export { AuthFormFields };
+import { $authStore, updateAuthStore } from "./model/store/authStore";
+
+export { AuthFormFields, $authStore, updateAuthStore };

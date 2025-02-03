@@ -1,4 +1,6 @@
-import axios from "axios";
+import axios, { InternalAxiosRequestConfig } from "axios";
+import { $userStore } from "entities/user";
+
 let apiUrl: string | undefined = process.env.REACT_APP_API_URL;
 if (apiUrl === undefined) {
 	console.error(
@@ -9,6 +11,12 @@ if (apiUrl === undefined) {
 
 const apiInstance = axios.create({
 	baseURL: apiUrl,
+});
+
+apiInstance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+	const userStore = $userStore.getState();
+	config.headers.Authorization = `Bearer ${userStore.access}`;
+	return config;
 });
 
 export default apiInstance;

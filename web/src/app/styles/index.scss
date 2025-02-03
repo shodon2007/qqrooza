@@ -7,19 +7,28 @@
     background: var(--bg-color-0);
     color: var(--text-color);
     min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
 }
 
 .content-page {
     display: flex;
-    height: calc(100dvh - var(--header-height));
+    height: calc(100dvh - var(--header-height) 
+    );
+        
     width: 100dvw;
 }
 
 .page-wrapper {
     flex-grow: 1;
-    padding: 10px;
+    padding: 10px 0;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-* {
-  color: var(--text-color)
+
+@media (max-width: 1210px) {
+  .page-wrapper {
+    padding: 10px;
+  }
 }

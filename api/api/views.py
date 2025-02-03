@@ -6,8 +6,8 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Text
 
 class TextListCreate(generics.ListCreateAPIView):
-    serializer_class = TextSerializer;
-    permission_classes = [IsAuthenticated];
+    serializer_class = TextSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Text.objects.all()
@@ -18,13 +18,17 @@ class TextListCreate(generics.ListCreateAPIView):
         else:
             print(serializer.errors)
 
+class TextUpdate(generics.UpdateAPIView):
+    queryset = Text.objects.all() 
+    serializer_class = TextSerializer
+    permission_classes = [IsAuthenticated]
+
 class TextDelete(generics.DestroyAPIView):
-    queryset = Text.objects.all();
-    serializer_class = TextSerializer;
-    permission_classes = [IsAuthenticated];
+    queryset = Text.objects.all()
+    serializer_class = TextSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        print(self)
         return Text.objects.all()
 
 class CreateUserView(generics.CreateAPIView):

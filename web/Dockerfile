@@ -8,4 +8,4 @@ WORKDIR /root/qqrooza-web
 COPY . .
 RUN npm ci 
 
-CMD ["npm", "run", "build:prod", "&&", "tail", "-f", "/dev/null"]
+CMD ["npm", "run", "build:prod"]

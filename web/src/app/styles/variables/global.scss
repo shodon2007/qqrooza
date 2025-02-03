@@ -15,6 +15,10 @@
 
     // Размеры
     --header-height: 50px;
-    --sidebar-height: 300px;
-    --sidebar-height-collapsed: 50px;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --header-height: 100%;
+  }
 }

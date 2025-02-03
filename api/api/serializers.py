@@ -15,5 +15,5 @@ class UserSerializer(serializers.ModelSerializer):
 class TextSerializer(serializers.ModelSerializer):
     class Meta:
         model = Text
-        fields = ["id", "text"],
+        fields = ["id", "text"]
 

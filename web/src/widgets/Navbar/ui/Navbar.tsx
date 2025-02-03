@@ -1,37 +1,55 @@
-import { useState, type FC } from "react";
-import cls from "./Navbar.module.scss";
-import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { useTranslation } from "react-i18next";
-import clsx from "clsx";
-import { Menu, type MenuProps } from "antd";
+import { type FC, ReactElement } from "react";
 import { OrderedListOutlined } from "@ant-design/icons";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Button, { ThemeButton } from "shared/ui/Button/Button";
+import cls from "./Navbar.module.scss";
+import clsx from "clsx";
 
 type NavbarProps = {
-    className?: string;
+	className?: string;
 };
-type NavbarLinkType = Required<MenuProps>["items"][number];
+interface NavbarItem {
+	label: string;
+	key: string;
+	icon: ReactElement;
+}
 
 const Navbar: FC<NavbarProps> = () => {
-    const { t } = useTranslation();
-    const curPage = useParams();
-    console.log(curPage);
-    const [current, setCurrent] = useState();
+	const curPath = useLocation().pathname;
+	const navigate = useNavigate();
 
-    const navbarLinks: NavbarLinkType[] = [
-        {
-            label: "Список текстов",
-            key: "/texts",
-            icon: <OrderedListOutlined />,
-        },
-    ];
-    return "hello";
-    // return (
-    //     <Menu
-    //         onClick={(e) => console.log("hello", e)}
-    //         selectedKeys={[current]}
-    //     />
-    // );
+	const navbarLinks: NavbarItem[] = [
+		{
+			label: "Список текстов",
+			key: "/texts",
+			icon: <OrderedListOutlined />,
+		},
+		{
+			label: "Главная",
+			key: "/",
+			icon: <OrderedListOutlined />,
+		},
+	];
+
+	return (
+		<div className={cls.Navbar}>
+			{navbarLinks.map((el) => {
+				return (
+					<Button
+						key={el.key}
+						className={clsx(
+							cls.navbarButton,
+							el.key === curPath ? cls.selectedButton : false,
+						)}
+						theme={ThemeButton.CLEAR}
+						onClick={() => navigate(el.key)}
+					>
+						{el.label}
+					</Button>
+				);
+			})}
+		</div>
+	);
 };
 
 export default Navbar;

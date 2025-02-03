@@ -8,7 +8,7 @@ services:
           - ./dist:/usr/share/nginx/html/
         ports:
             - 3400:80
-            - 3000:3000
+            - 4000:4000
         depends_on:
             - web 
         networks:
@@ -29,6 +29,16 @@ services:
             # - api
         networks:
             - front
+
+    bot:
+        container_name: qqrooza-bot
+        build: ./bot/
+        restart: always
+        depends_on:
+            - api
+            - db
+        networks:
+            - db
     api:
         container_name: qqrooza-api
         build: ./api/
@@ -53,8 +63,6 @@ services:
     db:
         container_name: qqrooza-db
         build: ./db/
-        ports: 
-            - 5432:5432
         env_file:
              - ./db/.env
         volumes:

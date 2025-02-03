@@ -1,0 +1,9 @@
+{
+    "id": "id",
+    "value": "value",
+    "actions": "Actions",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel"
+}

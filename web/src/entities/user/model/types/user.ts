@@ -1,5 +1,6 @@
 export interface User {
-    isAuth: boolean;
-    isInit: boolean;
-    access_token?: string;
+	isAuth: boolean;
+	isInit: boolean;
+	access?: string;
+	refresh?: string;
 }

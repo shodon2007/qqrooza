@@ -8,6 +8,29 @@
 }
 
 .link {
-  font-size: 2.6rem;
+  font-size: 1.5rem;
   text-decoration: none;
 }
+
+.right {
+  display: flex;
+  gap: 20px;
+}
+
+.center {
+  order: 0;
+}
+
+@media(max-width: 720px) {
+  .Header {
+    flex-wrap: wrap;
+    gap: 10px;
+    height: var(--header-height)
+  }
+  .center {
+    order: 1;
+    flex-grow: 1;
+    width: 100dvw;
+  }
+}
+

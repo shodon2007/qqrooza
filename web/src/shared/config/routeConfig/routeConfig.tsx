@@ -3,12 +3,14 @@ import { MainPage } from "pages/MainPage";
 import { AboutPage } from "pages/AboutPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { AuthPage } from "pages/AuthPage";
+import TextPage from "pages/TextPage/ui/TextPage";
 
 export enum AppRoutes {
 	MAIN = "main",
 	ABOUT = "about",
 	NOT_FOUND = "not_found",
 	AUTH = "auth",
+	TEXTS = "texts",
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -16,6 +18,7 @@ export const RoutePath: Record<AppRoutes, string> = {
 	[AppRoutes.ABOUT]: "/about",
 	[AppRoutes.NOT_FOUND]: "*",
 	[AppRoutes.AUTH]: "/auth",
+	[AppRoutes.TEXTS]: "/texts",
 };
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
@@ -34,5 +37,9 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
 	[AppRoutes.AUTH]: {
 		path: RoutePath.auth,
 		element: <AuthPage />,
+	},
+	[AppRoutes.TEXTS]: {
+		path: RoutePath.texts,
+		element: <TextPage />,
 	},
 };
