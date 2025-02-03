@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Button, { ThemeButton } from "shared/ui/Button/Button";
 import cls from "./Navbar.module.scss";
 import clsx from "clsx";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 type NavbarProps = {
 	className?: string;
@@ -21,12 +22,12 @@ const Navbar: FC<NavbarProps> = () => {
 	const navbarLinks: NavbarItem[] = [
 		{
 			label: "Список текстов",
-			key: "/texts",
+			key: RoutePath.texts,
 			icon: <OrderedListOutlined />,
 		},
 		{
-			label: "Главная",
-			key: "/",
+			label: "Список юзеров",
+			key: RoutePath.users,
 			icon: <OrderedListOutlined />,
 		},
 	];

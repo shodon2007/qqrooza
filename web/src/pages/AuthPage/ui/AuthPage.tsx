@@ -9,7 +9,7 @@ const AuthPage = () => {
 	const userStore = useUnit($userStore);
 	const navigate = useNavigate();
 	if (userStore.isAuth) {
-		navigate(RoutePath.main);
+		navigate(RoutePath.texts);
 	}
 	return (
 		<div className={cls.authPage}>

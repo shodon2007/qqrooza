@@ -10,6 +10,5 @@ export const $createTextStore = createStore<CreateStoreTypes>({
 export const updateCreateTextStore = createEvent<CreateStoreTypes>();
 
 $createTextStore.on(updateCreateTextStore, (_, data) => {
-	console.log("update state");
 	return data;
 });
