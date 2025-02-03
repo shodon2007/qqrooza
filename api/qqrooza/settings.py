@@ -154,6 +154,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost",
     "http://proxy",
+    "https://qqrooza.fun",
 ]
 
 CORS_ALLOW_METHODS = [
