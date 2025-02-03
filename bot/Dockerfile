@@ -12,5 +12,5 @@ COPY . .
 ENV PYTHONPATH=/usr/src/app
 
 
-CMD ["tail", "-f", "/dev/null"]
-# CMD ["python", "./src/main.py"]
+# CMD ["tail", "-f", "/dev/null"]
+CMD ["python", "./src/main.py"]
