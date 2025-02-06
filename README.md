@@ -1,6 +1,6 @@
 тестовое задание.
 Чтобы посмотреть на него напишите в https://t.me/qqroozaBot
-Админ панель: qqrooza.fun (логин root пароль root);
+Админ панель: https://qqrooza.fun (логин root пароль root);
 Ссылка на макет: https://www.figma.com/design/1IKkfJIHQaONb6GhItT3H4/qqrooza?node-id=3-13&t=kOHj1iVkYEbZFq99-1 (не доделано ссори) (там первая страница emptyPage, если слева сверху тыкнуть там другие страницы откроются и там есть макеты)
 
 технологии: docker, python-django, pyTelegrambotapi, postgresql, react, effector
